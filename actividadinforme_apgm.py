@@ -13,7 +13,7 @@ Original file is located at
 
 ### Importación de las librerías
 """
-
+## pip install pandas numpy seaborn matplotlib scikit-learn
 import pandas as pd
 import numpy as np
 import seaborn as sns
@@ -32,6 +32,7 @@ sns.set(style="whitegrid", palette="pastel")
 
 # Revisar la ubicación del dataset (/dataset/ds_inquilinos.csv)
 df = pd.read_csv("ds_inquilinos.csv")
+df_original = pd.read_csv("ds_inquilinos.csv")
 
 print("Dimensiones del dataset:", df.shape)
 df.head()
@@ -74,12 +75,12 @@ plt.title('Distribución general de ritmo')
 plt.xlabel('Ritmo') # Add x-axis label
 plt.show()
 
-# Relación entre edad y supervivencia
+# Relación entre nivel educativo y ritmo
 plt.figure(figsize=(6,4))
 sns.histplot(df[df['ritmo']==1]['nivel_educativo'], color='blue', label='nocturno', kde=True)
 sns.histplot(df[df['ritmo']==0]['nivel_educativo'], color='yellow', label='madrugador', kde=True)
 plt.legend()
-plt.title('Distribución de ritmo por fumador')
+plt.title('Distribución de ritmo por nivel educativo')
 plt.show()
 
 # Crear una tabla de contingencia con proporciones
